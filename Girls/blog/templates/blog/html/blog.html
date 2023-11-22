@@ -9,5 +9,12 @@
 </head>
 <body>
     <a href="https://github.com/lymex1/Blog/">Link to this website in git</a>
+    {% for post in post %}
+        <div>
+            <p>Published date: <br>{{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <h3>{{ post.text }}</h3>
+        </div>
+    {% endfor %}
 </body>
 </html>
