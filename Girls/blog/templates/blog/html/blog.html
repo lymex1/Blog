@@ -1,20 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lymex</title>
-</head>
-<body>
-    <a href="https://github.com/lymex1/Blog/">Link to this website in git</a>
+{% extends "blog/html/base.html" %}
+
+{% block content %}
     {% for post in post %}
-        <div>
-            <p>Published date: <br>{{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <h3>{{ post.text }}</h3>
+        <div class="post">
+            <div class="date">
+                <p>Опубликовано: {{ post.published_date }}</p>
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
