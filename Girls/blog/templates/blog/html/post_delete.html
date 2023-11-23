@@ -1,0 +1,10 @@
+{% extends 'blog/html/base.html' %}
+
+{% block content %}
+      <form method="POST">
+         {% csrf_token %}
+          <p class="warning-text">Вы уверены что хотите удалить пост <b>"{{ post.title }}"</b></p>
+         <button class="btn btn-danger" type="submit" >Удалить</button>
+          <a class="btn btn-info" href="{% url 'post_detail' pk=post.pk %}">Отмена</a>
+      </form>
+{% endblock %}
