@@ -1,0 +1,13 @@
+{% extends 'blog/html/base.html' %}
+
+{% block content %}
+    <h1 class="main-text">Черновики</h1>
+    {% for post in posts %}
+            {% if post.author == user  %}
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <p>{{ post.text|truncatechars:200 }}</p>
+                <p class="date">Создано: {{ post.create_date|date:'d.m.Y' }}</p>
+
+            {% endif %}
+    {% endfor %}
+{% endblock %}
